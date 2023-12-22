@@ -1,0 +1,17 @@
+<div class="col-md-6 offset-md-3">
+
+  <div class ="edit-film-form">
+
+    <h1>Редактировать фильм</h1>
+
+    <%= simple_form_for @film, :html => { :multipart => true } do |f| %>
+      <%= f.select :category_id, @categories %>
+      <%= f.file_field :film_img %>
+      <%= f.input :title, label: "Название фильма" %>
+      <%= f.input :description %>
+      <%= f.input :director %>
+      <%= f.button :submit, :class => "btn-custom2" %>
+    <% end %>
+
+  </div>
+</div>

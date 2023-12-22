@@ -1,0 +1,24 @@
+
+
+<h1 class="current-category"><%= params[:category] %></h1>
+
+<% if @films.count == 0 %>
+  <h1>В этой категории нет фильмов</h1>
+<% else %>
+  <div class="help">
+  <div class="row">
+
+  <%= @films.each do |film| %>
+  
+    <div class = "col-md-3">
+      <a href = "/films/<%= film.id %>">
+        <%= image_tag film.film_img.url(:film_index), class: "film" %>
+      </a>
+    </div>
+  
+  <% end %>
+  
+  </div>
+  </div>
+
+<% end %>

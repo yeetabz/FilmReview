@@ -1,0 +1,15 @@
+<div class="col-md-6 offset-md-3">
+
+  <div class ="edit-review-form">
+
+    <h1>Редактировать отзыв</h1>
+
+    <%= simple_form_for([@film, @review]) do |f| %>
+    <%= f.input :rating %>
+    <%= f.input :comment %>
+    <%= f.button :submit, :class => "btn-custom2" %>
+    <% end %>
+
+  </div>
+
+</div>

@@ -1,0 +1,8 @@
+<%= simple_form_for @film, :html => { :multipart => true } do |f| %>
+  <%= select_tag(:category_id, options_for_select(@categories), :prompt => " Выберите категорию") %>
+  <%= f.file_field :film_img %>
+  <%= f.input :title, label: "Название фильма" %>
+  <%= f.input :description, label: "Описание" %>
+  <%= f.input :director, label: "Режиссер" %>
+  <%= f.button :submit, :class => "btn-custom2" %>
+<% end %>

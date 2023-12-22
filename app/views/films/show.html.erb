@@ -1,0 +1,47 @@
+<div class="row">
+
+  <div class = "col-md-4">
+    <%= image_tag @film.film_img.url(:film_show), class: "film-show" %>
+  </div>
+  <div class = "col-md-8">
+    <div class = "film-info">
+    
+      <h2 class="film-title"><%= @film.title %></h2>
+      <h3 class="film-director"><span>Режиссер </span><%= @film.director %></h3>
+      <h2 class = "avg-rating">Средний рейтинг: <%= @average_review %> / 5 </h2>
+      <span class = "number-of-reviews">Основано на <%= @film.reviews.count %> отзывах</span>
+      <p class="film-desc"><%= @film.description %></p>
+    
+    </div>
+  </div>
+
+</div>
+
+<div class = "row">
+
+  <div class = "col-md-4">
+
+    <div class = "reviews">
+      <h1>Отзывы</h1>
+      <%= render @film.reviews %>
+      
+      <div>
+        <%= link_to "Добавить отзыв", new_film_review_path(@film), class: "btn btn-custom" %>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class = "links btn-group">
+
+
+  <%= link_to "Назад", root_path, class: "btn btn-custom" %>
+
+  <% if user_signed_in? %>
+    <%= link_to "Редактировать", edit_film_path(@film), class: "btn btn-custom" %>
+    <%= link_to "Удалить", film_path(@film), method: :delete, data: { confirm: "Вы уверены?" }, class: "btn btn-custom" %>
+  <% end %>
+
+</div>
